@@ -29,13 +29,31 @@ Edit this document to include your answers after each question. Make sure to lea
 
 1. Briefly compare and contrast `.forEach` & `.map` (2-3 sentences max)
 
+    Both forEach and map are useful for manipulating data, but go about it in very different ways. forEach will go through each item and manipulate the given array, but map will manipulate the data and return a new array (leaving the original as it is).
+
 2. Explain the difference between a callback and a higher order function.
+
+    A higher order function is a function that receives other functions (callbacks) as it's parameters. A callback is fed into an HOF as a parameter. This helps to allow us to write DRY code, for example; instead of repeating multiple equations over and over again throughout various functions, you could write an HOF to accept callbacks of the equations needed at any given time.
 
 3. Can you explain what a closure is and how you used it in the counter function? 
 
+    A closure is when a child function reaches out of it's scope, into it's parent to get a variable. In the counter function we had closure when the for loop reached for the parameter passed to it's parent to determine how many times it would iterate.
+
 4. Describe the four principles of the 'this' keyword.
 
+    Window Binding: This happens if 'this' isn't given context. It will return the window, global object, or undefined.
+
+    Implicit Binding: This applies to an object with a method. When the method is invoked, 'this' refers to what's left of the dot.
+
+    Explicit Binding: call (immediately invokes function, passing in arguments 1 by 1)
+                      apply (immediately invokes function, passing in arguments as an array)
+                      bind (Does not immediately invoke, but rather returns a new function to invoke at a later time, passing in arguments 1 bt 1)
+    
+    New Binding: When using the keyword 'new', the function constructs a new object, which is what 'this' refers to. 
+
 5. Why do we need super() in an extended class?
+
+    Super is used to inherit the attributes of the class it's extending, allowing you to layer said attributes as needed.
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade. 
 
