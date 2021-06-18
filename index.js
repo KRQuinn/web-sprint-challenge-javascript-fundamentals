@@ -160,20 +160,19 @@ function greeting(firstName, lastName){
 /* 🐴🐴🐴 Step 1: Base Constructor 🐴🐴🐴
  Use the constructor function named CuboidMaker to accept properties for length, width, and height which can be initialized as an object
 */
-class CuboidMaker{
-  constructor(attr){
-    this.length = attr.length;
-    this.width = attr.width;
-    this.height = attr.height;
-  }
-  volume(){
-    return this.length * this.width * this.height;
-  }
-  surfaceArea(){
-    return 2 * (this.length * this.width + this.width * this.height + this.height * this.length)
-  }
+function CuboidMaker(attr) {
+  this.length = attr.length;
+  this.width = attr.width;
+  this.height = attr.height;
 }
 
+CuboidMaker.prototype.volume = function(){
+  return this.length * this.width * this.height;
+}
+
+CuboidMaker.prototype.surfaceArea = function(){
+  return 2 * (this.length * this.width + this.width * this.height + this.height * this.length);
+}
 
 /* 🐴🐴🐴 Step 2: Volume Method 🐴🐴🐴
   Create a method called volume using CuboidMaker's prototype that returns the volume of a given cuboid's length, width, and height
@@ -209,7 +208,17 @@ class CuboidMaker{
 // 🦄🦄🦄 Topic 4: Classes 🦄🦄🦄 //
 //🦄🦄🦄 1. Take your prototypes from above and refactor into class syntax. Please rename your class CuboidMakerTwo and your object cuboidTwo 🦄🦄🦄
 class CuboidMakerTwo{
-
+  constructor(attr){
+    this.length = attr.length;
+    this.width = attr.width;
+    this.height = attr.height;
+  }
+  volume(){
+    return this.length * this.width * this.height;
+  }
+  surfaceArea(){
+    return 2 * (this.length * this.width + this.width * this.height + this.height * this.length);
+  }
 }
 
 
@@ -223,9 +232,25 @@ class CuboidMakerTwo{
 
 // 🦄 💪 Stretch Task: Extend the base class CuboidMaker with a sub class called CubeMaker.  Find out the formulas for volume and surface area for cubes and create those methods using the dimension properties from CuboidMaker.  Test your work by logging out your volume and surface area. 🦄 💪
   
+class CubeMaker extends CuboidMaker {
+  constructor(attr){
+    super(attr);
+  }
+  volume(){
+    return Math.pow(this.length, 3)
+  }
+  surfaceArea(){
+    return 6 * (this.length * this.width);
+  }
+}
 
+const lilCube = new CubeMaker({
+  length: 2,
+  width: 2,
+  height: 2,
+});
 
-
+console.log(`The little cube has a volume of ${lilCube.volume()}`);
 
 
   /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
